@@ -31,9 +31,9 @@ def authenticate():
 
     try:
         api.verify_credentials()
-        print("**Twitter Authentication Successful")
+        print("Twitter Authentication Successful!")
     except Exception as e:
-        print("**Twitter Authentication Error")
+        print("**Twitter Authentication Error**")
         print(e)
     
     try:
@@ -49,9 +49,10 @@ def authenticate():
                                         redirect_uri=redirect_uri)
 
         sp = spotipy.Spotify(auth=token) 
-
+        print("Spotify Authentication Successful!")    
+            
     except Exception as e:
-        print("**Spotify Authentication Error")
+        print("**Spotify Authentication Error**")
         print(e)
     
 
