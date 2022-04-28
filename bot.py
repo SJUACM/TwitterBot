@@ -1,13 +1,15 @@
-from ast import excepthandler
+
+__author__ = 'Faizan Ahmed'
+__email__ = 'faizan.ahmed18@stjohns.edu'
+__date__  = '2022/04/27'
+
 import spotipy 
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 import tweepy
-import json
-import requests
 import logging
 import time
-from credentials import access_token, access_token_secret, API_key, API_secret_key, spotify_username, spotify_client_id, spotify_client_secret
+from credentials import twitter_access_token, twitter_access_token_secret, twitter_API_key, twitter_API_secret_key, spotify_username, spotify_client_id, spotify_client_secret
 
 # For adding logs in application
 logger = logging.getLogger()
@@ -23,8 +25,8 @@ def authenticate():
     global api
     global sp
     
-    auth = tweepy.OAuthHandler(API_key, API_secret_key)
-    auth.set_access_token(access_token, access_token_secret)
+    auth = tweepy.OAuthHandler(twitter_API_key, twitter_API_secret_key)
+    auth.set_twitter_access_token(twitter_access_token, twitter_access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True)
 
     try:
